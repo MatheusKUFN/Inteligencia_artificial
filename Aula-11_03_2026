@@ -49,14 +49,14 @@ movimentacao(pessoaA, pessoaB, outroLado, tempoTotal){
     ladoAtual = 'E'
   }
   else{
-	ladoAtual = 'D'
+    ladoAtual = 'D'
   }
 
   if (pessoaA[0] == l[0] && pessoaB is None && l[0] == ladoAtual){
-	visitados.append(f"{pessoaA[2]}:{pessoaA[0]}, Vazio, {l[1]}:{l[0]}")
+    visitados.append(f"{pessoaA[2]}:{pessoaA[0]}, Vazio, {l[1]}:{l[0]}")
     pessoaA[0] = outroLado
     l[0] = outroLado
-	tempoTotal += pessoaA[1]
+    tempoTotal += pessoaA[1]
     return pessoaA, l, tempoTotal, visitados
 }
 
@@ -72,7 +72,7 @@ movimentacao(pessoaA, pessoaB, outroLado, tempoTotal){
     pessoaA[0] = outroLado
     pessoaB[0] = outroLado
     l[0] = outroLado
-	tempoTotal += maisLento
+    tempoTotal += maisLento
     return pessoaA, pessoaB, l, tempoTotal, visitados
   }
 }
@@ -87,9 +87,3 @@ Lista visitados = "Aluno:E, Professor:E, Lanterna:E"
 
 # Função objetivo:
 a[0], p[0], z[0], c[0], l[0] == 'D' && tempoTotal <= 17
-
-
-
-
-
-
