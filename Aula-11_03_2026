@@ -33,30 +33,34 @@ O que entregar?
 
 #################################### Resposta ####################################
 
-Problema dos Missionários e Canibais
-3 missionários
-3 canibais
-
-
-
-
-Problema da travessia da ponte
-
+# Problema da travessia da ponte
 # Estado:
 int tempoTotal = 0
-a = [E, 1]
-p = [E, 2]
-z = [E, 5]
-c = [E, 10]
-char l = 'E'
-str visitados = ""
+a = ['E', 1, "Aluno"]
+p = ['E', 2, "Professor"]
+z = ['E', 5, "Zelador"]
+c = ['E', 10, "Cientista"]
+l = ['E', "Lanterna"]
+visitados = []
 
 # Regras de Transição:
+movimentacao(pessoaA, pessoaB, outroLado, tempoTotal){
+  if (outroLado == 'D'){
+    ladoAtual = 'E'
+  }
+  else{
+	ladoAtual = 'D'
+  }
 
-// Dapara fazer so com uma funcao
-indo(pessoaA, pessoaB){
-  char outroLado = 'D'
-  if (pessoaA[0] == pessoaB[0] && pessoaA[0] == lanterna && lanterna == 'E'){
+  if (pessoaA[0] == l[0] && pessoaB is None && l[0] == ladoAtual){
+	visitados.append(f"{pessoaA[2]}:{pessoaA[0]}, Vazio, {l[1]}:{l[0]}")
+    pessoaA[0] = outroLado
+    l[0] = outroLado
+	tempoTotal += pessoaA[1]
+    return pessoaA, l, tempoTotal, visitados
+}
+
+  elif (pessoaA[0] == pessoaB[0] && pessoaA[0] == l[0] && l[0] == ladoAtual){
     maisLento = 0
     if (pessoaA[1] > pessoaB[1]){
       maisLento = pessoaA[1]
@@ -64,53 +68,25 @@ indo(pessoaA, pessoaB){
     else{
       maisLento = pessoaB[1]
     }
+	visitados.append(f"{pessoaA[2]}:{pessoaA[0]}, {pessoaB[2]}:{pessoaB[0]}, {l[1]}:{l[0]}")
     pessoaA[0] = outroLado
     pessoaB[0] = outroLado
-    lanterna = outroLado
-    return pessoaA, pessoaB, lanterna = outroLado, tempoTotal = maisLento, visitados += "pessoaA[0], pessoaB[0], outroLado"
-  }
-  elif (pessoaA[0] == lanterna && pessoaB[0] == null && lanterna == 'E'){
-    pessoaA[0] = outroLadoD
-    lanterna = outroLado
-    return pessoaA, lanterna = outroLado, tempoTotal = pessoaA[1], visitados += "pessoaA[0], null, outroLado"
-}
-
-
-vindo(pessoaA, pessoaB){
-  char outroLado = 'E'
-  if (pessoaA[0] == pessoaB[0] && pessoaA[0] == lanterna && lanterna == 'D'){
-    maisLento = 0
-    if (pessoaA[1] > pessoaB[1]){
-      maisLento = pessoaA[1]
-    }
-    else{
-      maisLento = pessoaB[1]
-    }
-    pessoaA[0] = outroLado
-    pessoaB[0] = outroLado
-    lanterna = outroLado
-    return pessoaA, pessoaB, lanterna = outroLado, tempoTotal = maisLento, visitados += "pessoaA[0], pessoaB[0], outroLado"
-  }
-  elif (pessoaA[0] == lanterna && pessoaB[0] == null && lanterna == 'D'){
-    pessoaA[0] = outroLado
-    lanterna = outroLado
-    return pessoaA, lanterna = outroLado, tempoTotal = pessoaA[1], visitados += "pessoaA[0], null, outroLado"
+    l[0] = outroLado
+	tempoTotal += maisLento
+    return pessoaA, pessoaB, l, tempoTotal, visitados
   }
 }
-
 
 # Restrição:
 No máximo duas pessoas podem cruzar a ponte (Limitado pela propria função)
-pessoaA == pessoaB && pessoaA == lanterna                <-- As pessoas deve estar sempre usando a lanterna
-tempoTotal <= 17                                         <-- tempo total máximo 17 minutos
-
+pessoaA[0] == pessoaB[0] && pessoaA[0] == l[0] && l[0] == ladoAtual          	<-- As pessoas deve estar sempre usando a lanterna
+tempoTotal <= 17                                         						<-- tempo total máximo 17 minutos
 
 # Visitados:
-visitados
-
+Lista visitados = "Aluno:E, Professor:E, Lanterna:E"
 
 # Função objetivo:
-a[0], p[0], z[0], c[0], l == 'D' && tempoTotal <= 17
+a[0], p[0], z[0], c[0], l[0] == 'D' && tempoTotal <= 17
 
 
 
