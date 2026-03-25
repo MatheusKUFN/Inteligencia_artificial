@@ -1,0 +1,17 @@
+# Método de busca (soluções)
+- chega em estado final (ou próximo)
+- Conjunto de passos ate o estado desejado
+
+## tipos de problema
+- diagnostico e reconhecimento de padrões
+	- treinamento e repetição
+- não se sabe os passos até o estado final
+
+1. Base de conhecimento
+
+2. Motores de raciocínio
+- Método de força bruta = profundidade, largura
+- Heurístico = subida da encosta g(n), guloso h(n), A* g(n) + h(n)
+
+3. Aprendizado de maquina
+- Reconhecer padrões por amostra / treinamento
